@@ -4,7 +4,7 @@ library(sf)
 
 
 
-seag_data <- read.csv("data/GC_Seagrasses2021.csv")
+seag_data <- source("https://raw.githubusercontent.com/CBMC-GCMP/seagrasses-goc-review/main/data/GC_Seagrasses_Redlist.csv")
 
 spdf_mx <- st_transform(st_as_sf(ne_countries(scale = 'large', country = 'mexico')), crs = 4326)
 
