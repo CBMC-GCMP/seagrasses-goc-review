@@ -4,7 +4,7 @@ library(sf)
 
 
 
-seag_data <- source("https://raw.githubusercontent.com/CBMC-GCMP/seagrasses-goc-review/main/data/GC_Seagrasses_Redlist.csv")
+seag_data <- read_csv("https://raw.githubusercontent.com/CBMC-GCMP/seagrasses-goc-review/main/data/GC_Seagrasses_Redlist.csv")
 
 spdf_mx <- st_transform(st_as_sf(ne_countries(scale = 'large', country = 'mexico')), crs = 4326)
 
@@ -28,6 +28,8 @@ ggplot(seag_coord) +
               axis.text.x = element_text(angle = 90))
 
 ggsave("figs/distribution_map.png", dpi = 600)
+
+
 
 
 
