@@ -62,8 +62,8 @@ unique(seag_coord$Red_red_list_category)
         group_by(Zone, Specie) %>% 
         summarise(TI = mean(Threat_index)) %>% 
         mutate(IUCN = cut(TI, 
-                          breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1), 
-                          labels = c("LC", "NT", "VU", "EN", "CO"))) %>% 
+                          breaks = c(0, 0.16, 0.33, 0.49, 0.66, 0.83, 1), 
+                          labels = c("LC", "NT", "VU", "EN", "CR", "CO"))) %>% 
         ggplot() +
         geom_sf(data = spdf_mx, 
                 fill = "gray90",
@@ -90,8 +90,8 @@ IUCN_barplot <- seag_coord %>%
         group_by(Zone, Specie) %>% 
         summarise(TI = mean(Threat_index)) %>% 
         mutate(IUCN = cut(TI, 
-                          breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1), 
-                          labels = c("LC", "NT", "VU", "EN", "CO"))) %>% 
+                          breaks = c(0, 0.16, 0.33, 0.49, 0.66, 0.83, 1), 
+                          labels = c("LC", "NT", "VU", "EN", "CR", "CO"))) %>% 
         group_by(IUCN, Specie) %>% 
         count() %>% 
         ggplot(aes(x = reorder(Specie, n), y = n, fill = IUCN)) +
