@@ -11,7 +11,7 @@ seag_data %>%
         summarise(n = mean(n)) %>% 
         mutate(PL = factor(Protection_level, 
                            levels = c("0", "0.5", "1"),
-                           labels = c("Open area", "Multi-use", "Core zone"))) %>% 
+                           labels = c("Core zone", "Multi-use", "Open area"))) %>% 
         group_by(Specie) %>% 
         mutate(tot = sum(n), perc = n) %>% 
         ggplot(aes(x = reorder(Specie, tot), y = perc, fill = PL)) +
@@ -33,7 +33,7 @@ seag_data %>%
         summarise(n = mean(n)) %>% 
         mutate(PL = factor(Protection_level, 
                            levels = c("0", "0.5", "1"),
-                           labels = c("Open area", "Multi-use", "Core zone"))) %>% 
+                           labels = c("Core zone", "Multi-use", "Open area"))) %>% 
         group_by(Specie) %>% 
         mutate(tot = sum(n), perc = n/tot) %>% 
         ggplot(aes(x = reorder(Specie, tot), y = perc, fill = PL)) +
