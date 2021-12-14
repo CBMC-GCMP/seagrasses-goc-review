@@ -103,7 +103,8 @@ IUCN_barplot <- seag_coord %>%
         theme(panel.border = element_rect(fill = NA, color = "gray90"), 
         axis.text.y = element_text(face = "italic"), 
         legend.position = "")
-(IUCN_barplot| (IUCN_map + inset_element(gen_map, 0.8, 0.8, 1, 1, align_to = 'full'))) 
 
-ggsave(filename = "figs/fill_IUCN_map.png", dpi = 600)
+(IUCN_barplot| IUCN_map) 
+
+ggsave(filename = "figs/fill_IUCN_map.png", dpi = 600, height = 4, width = 8)
 
